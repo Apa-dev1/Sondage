@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sondage de Vote</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin: 50px auto;
+            max-width: 600px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px 0;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sondage de Vote</h1>
+        <p>Votez pour votre option préférée :</p>
+        <form id="voteForm">
+            <label>
+                <input type="radio" name="option" value="Option 1" required>
+                Option 1
+            </label><br>
+            <label>
+                <input type="radio" name="option" value="Option 2" required>
+                Option 2
+            </label><br>
+            <label>
+                <input type="radio" name="option" value="Option 3" required>
+                Option 3
+            </label><br>
+            <button type="submit">Envoyer mon vote</button>
+        </form>
+        <p id="result" style="margin-top: 20px; font-weight: bold;"></p>
+    </div>
+
+    <script>
+        document.getElementById('voteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const selectedOption = document.querySelector('input[name="option"]:checked').value;
+            document.getElementById('result').textContent = `Merci d'avoir voté pour : ${selectedOption}`;
+        });
+    </script>
+</body>
+</html>
